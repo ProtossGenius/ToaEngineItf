@@ -25,7 +25,7 @@ public interface GameScreenItf {
      */
     void showMap(Graphics gp);
     /**
-     *
+     * @return
      * {玩家自身}，
      * {人物对象，ComboUnit},
      * {效果对象， }

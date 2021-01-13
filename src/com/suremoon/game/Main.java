@@ -2,6 +2,9 @@ package com.suremoon.game;
 
 import java.util.LinkedList;
 
+/**
+ * 用于生成Jar包的
+ */
 public class Main {
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<>();

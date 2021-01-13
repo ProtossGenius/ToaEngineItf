@@ -37,13 +37,13 @@ public interface GRectItf extends CalcAble {
 
 
     /**设置落脚位置
-     * @param x
-     * @param y
+     * @param x 横坐标
+     * @param y 纵坐标
      */
     void setPutPos(double x, double y);
 
     /** 设置落脚位置
-     * @param pos
+     * @param pos 位置
      */
     default void setPutPos(Point pos) {
         setPutPos(pos.x, pos.y);
@@ -54,8 +54,8 @@ public interface GRectItf extends CalcAble {
     }
 
     /** 设置左上角位置
-     * @param x
-     * @param y
+     * @param x 横坐标
+     * @param y 纵坐标
      */
     void setPos(double x, double y);
 

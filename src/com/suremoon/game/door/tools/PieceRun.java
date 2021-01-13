@@ -20,8 +20,6 @@ public class PieceRun {
      * action to do
      * @return
      * true: run-finish in PIECE_TIME ,false not
-     * @throws InterruptedException
-     * for Thread.sleep
      */
     public static boolean DoPeaceRun(int PIECE_TIME, Run run) {
         var start = System.currentTimeMillis();

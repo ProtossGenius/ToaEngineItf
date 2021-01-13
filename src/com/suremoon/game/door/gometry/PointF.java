@@ -101,7 +101,7 @@ public class PointF {
 
     /**
      *
-     * @param pf
+     * @param pf Ä¿±êµã
      * @return a Point whose X * X + Y * Y == 1, if dis is zero then return DIRECTION_ZERO
      */
     public PointF getDirection(PointF pf){

@@ -142,7 +142,7 @@ public class GRect implements GRectItf {
     /**
      * manager will never be null.
      *
-     * @param grm
+     * @param grm ¾ØĞÎ¹ÜÀíÆ÷
      */
     @Override
     public void setGRectMgr(GRectMgrItf grm) {

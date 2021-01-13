@@ -16,7 +16,7 @@ public class IDManager {
      * //this method should call in static code-block while init;
      * @param class_name
      * classname cant must cant repeat, must cannot repeat.
-     * @return
+     * @return ×Ö·û´®¶ÔÓ¦µÄID
      */
     public static int getID(String class_name){
         if(ids.containsKey(class_name)){

@@ -10,7 +10,7 @@ import com.suremoon.game.door.kernel.manager.UnitMgrItf;
 public interface GameMapItf {
 
     /** 更换地图信息，这个方法主要是在地图编辑器里用到
-     * @param mapInfo
+     * @param mapInfo 地图信息
      */
     void changeMap(MapInformation mapInfo);
 

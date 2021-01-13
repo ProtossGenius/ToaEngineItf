@@ -1,0 +1,104 @@
+package com.suremoon.game.door.kernel;
+
+import com.suremoon.game.door.gometry.PointF;
+
+import java.awt.*;
+
+public interface GRectItf extends CalcAble {
+    /**
+     * @return 转换成awt的Rect
+     */
+    Rectangle toRect();
+
+    /**
+     * @return 获得GRect的大小
+     */
+    Dimension getSize();
+
+    /**
+     * @param size GRect的大小
+     */
+    void setSize(Point size);
+
+    default void setSize(Dimension size) {
+        setSize(size.width, size.height);
+    }
+
+    void setSize(int width, int height) ;
+    /**通过增加值的方式使之移动,同时更新在管理器中的位置
+     * @param cg 移动向量
+     */
+    void moveAdd(PointF cg);
+
+    /**
+     * @return 左上角的位置
+     */
+    PointF getPos();
+
+
+    /**设置落脚位置
+     * @param x
+     * @param y
+     */
+    void setPutPos(double x, double y);
+
+    /** 设置落脚位置
+     * @param pos
+     */
+    default void setPutPos(Point pos) {
+        setPutPos(pos.x, pos.y);
+    }
+
+    default void setPutPos(PointF pos) {
+        setPutPos(pos.X, pos.Y);
+    }
+
+    /** 设置左上角位置
+     * @param x
+     * @param y
+     */
+    void setPos(double x, double y);
+
+    default void setPos(Point pos) {
+        setPos(pos.x, pos.y);
+    }
+
+    /**
+     * @param pos 设置位置
+     */
+    default void setPos(PointF pos) {
+        setPos(pos.X, pos.Y);
+    }
+
+    /**
+     * @return 获得横坐标
+     */
+    int getX();
+
+    /**
+     * @return 获得纵坐标
+     */
+    int getY();
+
+    int getWidth();
+
+    int getHeight();
+
+    /**
+     * @return 获得脚所在的坐标
+     */
+    PointF getFootPos();
+
+    /**
+     * @param footPos 脚在矩形中的相对位置
+     */
+    void setFootPosPro(PointF footPos);
+
+    /**
+     * @param grm 设置所在的管理器
+     */
+    void setGRectMgr(GRectMgrItf grm);
+
+    void setDirect(PointF direct);
+    PointF getDirect();
+}

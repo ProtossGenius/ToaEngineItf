@@ -161,7 +161,9 @@ public class GRect implements GRectItf {
 
     @Override
     public void doCalc(WorldItf world, WorldMgrItf wm) {
-
+        if(isDrop()){
+            this.getGRectMgr().delGRect(this);
+        }
     }
 
     public PointF getDirect() {

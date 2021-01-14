@@ -18,7 +18,5 @@ public interface WorldItf extends Runnable, CommandFactory, EffectFactory, State
      */
     int getWorldIndex();
 
-    Factories getFactories();
-
     int getPieceTime();
 }

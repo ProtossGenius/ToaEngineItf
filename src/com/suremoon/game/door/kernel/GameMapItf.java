@@ -26,11 +26,6 @@ public interface GameMapItf {
     }
 
     /**
-     * 计算
-     */
-    void doCalc();
-
-    /**
      * @return 地图的列数
      */
     int getCols();

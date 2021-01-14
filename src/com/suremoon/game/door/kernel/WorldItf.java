@@ -1,18 +1,12 @@
 package com.suremoon.game.door.kernel;
 
-import com.suremoon.game.door.factorys.Factories;
+import com.suremoon.game.door.factorys.*;
 
-public interface WorldItf extends Runnable{
+public interface WorldItf extends Runnable, CommandFactory, EffectFactory, StateFactory, TerrainFactory, UnitFactory {
     /**
      * @return 世界所有的GameMap
      */
     GameMapItf getGameMap();
-
-    /**
-     * @param worldMgr 世界管理器
-     * @param index 其在世界管理器中的索引
-     */
-    void setWorldMgr(WorldMgrItf worldMgr, int index);
 
     /**
      * @return 世界名
@@ -25,4 +19,6 @@ public interface WorldItf extends Runnable{
     int getWorldIndex();
 
     Factories getFactories();
+
+    int getPieceTime();
 }

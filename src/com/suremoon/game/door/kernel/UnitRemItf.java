@@ -2,9 +2,8 @@ package com.suremoon.game.door.kernel;
 
 import com.suremoon.game.door.units_itf.UnitItf;
 
-public interface UnitRemItf {
+public interface UnitRemItf extends CalcAble{
     void underAttack(UnitItf attacker, double hurt);
-    void forgetUnit(UnitItf u);
     UnitRemItf Null = new UnitRemNothing();
 }
 
@@ -16,7 +15,7 @@ class UnitRemNothing implements UnitRemItf{
     }
 
     @Override
-    public void forgetUnit(UnitItf u) {
+    public void doCalc(WorldItf world, WorldMgrItf worldMgr) {
 
     }
 }

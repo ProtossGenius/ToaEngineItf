@@ -101,4 +101,15 @@ public interface GRectItf extends CalcAble {
 
     void setDirect(PointF direct);
     PointF getDirect();
+
+
+    /**丢弃的单位会被从计算队列及管理器中丢弃
+     * @param isDrop 是否要丢弃该单位
+     */
+    void setDrop(boolean isDrop);
+
+    /**
+     * @return 是否要丢弃该单位
+     */
+    boolean isDrop();
 }

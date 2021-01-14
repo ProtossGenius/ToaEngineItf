@@ -16,6 +16,8 @@ public class GRect implements GRectItf {
     PointF pos;
 //    ArrayList<GRInputListener> inputEvents = new ArrayList<>();
     GRectMgrItf manager = new NullGRectMgr();
+
+    boolean isDrop;
     int walkLevel;
     protected PointF direct = new PointF(0, 0);
 
@@ -172,4 +174,15 @@ public class GRect implements GRectItf {
         }
         this.direct = direct;
     }
+
+    @Override
+    public boolean isDrop() {
+        return isDrop;
+    }
+
+    @Override
+    public void setDrop(boolean drop) {
+        isDrop = drop;
+    }
+
 }

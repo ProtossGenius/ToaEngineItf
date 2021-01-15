@@ -1,6 +1,7 @@
 package com.suremoon.game.door.nils;
 
 import com.suremoon.game.door.kernel.*;
+import com.suremoon.game.door.kernel.manager.GRectMgrItf;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -54,8 +55,4 @@ public class NullGRectMgr implements GRectMgrItf {
         return 0;
     }
 
-    @Override
-    public void doCalc(WorldItf world, WorldMgrItf worldMgr) {
-
-    }
 }

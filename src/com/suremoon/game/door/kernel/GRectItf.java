@@ -1,6 +1,7 @@
 package com.suremoon.game.door.kernel;
 
 import com.suremoon.game.door.gometry.PointF;
+import com.suremoon.game.door.kernel.manager.GRectMgrItf;
 
 import java.awt.*;
 

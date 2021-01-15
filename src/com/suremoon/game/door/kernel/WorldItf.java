@@ -19,4 +19,13 @@ public interface WorldItf extends Runnable, CommandFactory, EffectFactory, State
     int getWorldIndex();
 
     int getPieceTime();
+
+    Status getStatus();
+
+    void setStatus(Status status);
+
+    /**
+     * ±£´æÊÀ½ç×´Ì¬¡£
+     */
+    void save();
 }

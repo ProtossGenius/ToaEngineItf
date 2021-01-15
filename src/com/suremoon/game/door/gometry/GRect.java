@@ -1,7 +1,7 @@
 package com.suremoon.game.door.gometry;
 
 import com.suremoon.game.door.kernel.GRectItf;
-import com.suremoon.game.door.kernel.GRectMgrItf;
+import com.suremoon.game.door.kernel.manager.GRectMgrItf;
 import com.suremoon.game.door.kernel.WorldItf;
 import com.suremoon.game.door.kernel.WorldMgrItf;
 import com.suremoon.game.door.nils.NullGRectMgr;

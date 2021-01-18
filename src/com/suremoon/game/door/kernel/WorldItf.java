@@ -31,5 +31,8 @@ public interface WorldItf extends Runnable, CommandFactory, EffectFactory, State
      */
     void save();
 
-    void addGRect(GRectItf gRect);
+    /**
+     *  推送GRect到计算队列中
+     */
+    void pushGRectToCalcQueue(GRectItf gRect);
 }

@@ -62,4 +62,10 @@ public interface GameScreenItf {
      * @param gm 所属的Map
      */
     void setGameMap(GameMapItf gm);
+
+
+    /**
+     * @return 拥有的GameMap
+     */
+    GameMapItf getGameMap();
 }

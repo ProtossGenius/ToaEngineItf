@@ -4,7 +4,6 @@ import com.suremoon.game.door.kernel.GRectItf;
 import com.suremoon.game.door.kernel.manager.GRectMgrItf;
 import com.suremoon.game.door.kernel.WorldItf;
 import com.suremoon.game.door.kernel.WorldMgrItf;
-import com.suremoon.game.door.nils.NullGRectMgr;
 
 import java.awt.*;
 
@@ -15,7 +14,7 @@ public class GRect implements GRectItf {
     Dimension size;
     PointF pos;
 //    ArrayList<GRInputListener> inputEvents = new ArrayList<>();
-    GRectMgrItf manager = new NullGRectMgr();
+    GRectMgrItf manager = GRectMgrItf.Null;
 
     boolean isDrop;
     int walkLevel;

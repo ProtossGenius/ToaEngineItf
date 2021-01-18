@@ -22,10 +22,9 @@ public class MsgScreenInfo implements AGMessage {
         this.info = res;
     }
 
-    public MsgScreenInfo(byte[] in){
+    public MsgScreenInfo(ByteStream bs){
         this.info = new AGMessage[3][];
 
-        ByteStream bs = new ByteStream(in);
         WorldIndex = bs.getInteger();
         info[0] = new AGMessage[]{new MsgUnit(bs)};
         var length = bs.getInteger();

@@ -18,4 +18,14 @@ public interface UnitMgrItf {
     AGMessage[] getShowers(Rectangle screenRect);
     UnitItf getUnit(int ugid);
     int size();
+
+    /**
+     * remove all units in UnitMgrItf.
+     */
+    default void clear(){
+        var units = getUnits();
+        for(var unit : units){
+            removeUnit(unit);
+        }
+    }
 }

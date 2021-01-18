@@ -21,8 +21,7 @@ public class MsgCommand implements AGMessage {
         point = cmd.getTargetPoint();
         appendCmd = cmd.isAppendCmd() ? (byte)1 : (byte)0;
     }
-    public MsgCommand(byte[] inp){
-        ByteStream bs = new ByteStream(inp);
+    public MsgCommand(ByteStream bs){
         uType = bs.getInteger();
         extSize = bs.getInteger();
         target = bs.getInteger();

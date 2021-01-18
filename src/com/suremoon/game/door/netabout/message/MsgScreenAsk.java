@@ -15,8 +15,7 @@ public class MsgScreenAsk implements AGMessage {
         posY = rect.y;
     }
 
-    public MsgScreenAsk(byte[] in){
-        ByteStream bs = new ByteStream(in);
+    public MsgScreenAsk(ByteStream bs){
         posX = bs.getInteger();
         posY = bs.getInteger();
     }

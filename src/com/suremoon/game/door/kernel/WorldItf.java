@@ -1,6 +1,8 @@
 package com.suremoon.game.door.kernel;
 
 import com.suremoon.game.door.factorys.*;
+import com.suremoon.game.door.units_itf.EffectItf;
+import com.suremoon.game.door.units_itf.UnitItf;
 
 public interface WorldItf extends Runnable, CommandFactory, EffectFactory, StateFactory, TerrainFactory, UnitFactory {
     /**
@@ -28,4 +30,6 @@ public interface WorldItf extends Runnable, CommandFactory, EffectFactory, State
      * ±£´æÊÀ½ç×´Ì¬¡£
      */
     void save();
+
+    void addGRect(GRectItf gRect);
 }

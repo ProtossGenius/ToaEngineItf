@@ -5,6 +5,7 @@ import com.suremoon.game.door.kernel.AGTypeInf;
 import com.suremoon.game.door.kernel.DieDo;
 import com.suremoon.game.door.kernel.GRectItf;
 import com.suremoon.game.door.kernel.UnitRemItf;
+import com.suremoon.game.door.kernel.enums.LeaveStatus;
 
 public interface UnitItf extends AGTypeInf, GRectItf {
 
@@ -59,4 +60,8 @@ public interface UnitItf extends AGTypeInf, GRectItf {
 
     void setShowName(String showName);
     String getShowName();
+
+    LeaveStatus getLeaveStatus();
+
+    void setLeaveStatus(LeaveStatus leaveStatus);
 }

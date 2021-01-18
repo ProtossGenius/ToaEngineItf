@@ -27,6 +27,23 @@ public class GRect implements GRectItf {
         this(0, 0, 0, 0);
     }
 
+    public GRect(GRect rhs, Object move) {
+        this.size = rhs.size;
+        this.pos  = rhs.pos;
+        this.manager = rhs.manager;
+        this.isDrop = rhs.isDrop;
+        this.direct = rhs.direct;
+        this.footPos = rhs.footPos;
+
+        rhs.size = null;
+        rhs.pos  = null;
+        rhs.manager = null;
+        rhs.direct = null;
+        rhs.footPos = null;
+
+
+    }
+
     public GRect(int width, int height) {
         this(0, 0, width, height);
     }
@@ -161,9 +178,6 @@ public class GRect implements GRectItf {
 
     @Override
     public void doCalc(WorldItf world, WorldMgrItf wm) {
-        if(isDrop()){
-            this.getGRectMgr().delGRect(this);
-        }
     }
 
     public PointF getDirect() {

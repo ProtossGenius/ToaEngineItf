@@ -5,4 +5,5 @@ package com.suremoon.game.door.kernel;
  */
 public interface AGTypeInf {
     int getAGType();
+    void setAGType(int type);
 }

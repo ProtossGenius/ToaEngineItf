@@ -64,4 +64,7 @@ public interface UnitItf extends AGTypeInf, GRectItf {
     LeaveStatus getLeaveStatus();
 
     void setLeaveStatus(LeaveStatus leaveStatus);
+
+    void setLeaveAction(UnitLeaveAction unitLeaveAction);
+    UnitLeaveAction getLeaveAction();
 }

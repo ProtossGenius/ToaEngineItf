@@ -65,6 +65,19 @@ public interface UnitItf extends AGTypeInf, GRectItf {
 
     void setLeaveStatus(LeaveStatus leaveStatus);
 
+    /**
+     * @param unitLeaveAction 当玩家设置为离开，被移除当前世界之后做什么
+     */
     void setLeaveAction(UnitLeaveAction unitLeaveAction);
     UnitLeaveAction getLeaveAction();
+
+    /**
+     * @return 玩家所属的阵营
+     */
+    int getCamp();
+
+    /**
+     * @param camp 玩家所属的阵营
+     */
+    void setCamp(int camp);
 }

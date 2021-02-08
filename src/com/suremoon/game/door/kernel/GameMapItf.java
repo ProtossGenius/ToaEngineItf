@@ -1,8 +1,11 @@
 package com.suremoon.game.door.kernel;
 
+import com.suremoon.game.door.gometry.Connectivity;
 import com.suremoon.game.door.infos.MapInformation;
 import com.suremoon.game.door.kernel.manager.EffectMgrItf;
 import com.suremoon.game.door.kernel.manager.UnitMgrItf;
+
+import java.awt.*;
 
 /**
  *  游戏地图接口
@@ -34,6 +37,8 @@ public interface GameMapItf {
      * @return 地图的行数
      */
     int getRows();
+
+    default boolean isLegalPos(int x, int y){return x >= 0 && x < getCols() && y >= 0 && y < getRows();}
 
     /**
      * @return 获取碰撞检测器
@@ -72,9 +77,17 @@ public interface GameMapItf {
      * @return 处于(x,y)位置的地形
      */
     TerrainItf getTerrain(int x, int y);
+    default TerrainItf getTerrain(Point p){return getTerrain(p.x, p.y);}
 
     void setTerrain(int x, int y, TerrainItf terrain);
 
+    /**
+     * @param x 地形索引在x方向的值
+     * @param y 地形索引在y方向的值
+     * @return 处于(x,y)位置的地形连通性
+     */
+    Connectivity getConnectivity(int x, int y);
+    default Connectivity getConnectivity(Point p){return getConnectivity(p.x, p.y);}
     GameScreenItf createGameScreen();
     UnitMgrItf getUnitMgr();
     void setUnitMgr(UnitMgrItf um);

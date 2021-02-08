@@ -13,7 +13,19 @@ public interface UnitMgrItf {
     void removeUnit(UnitItf unit);
     UnitItf[] getUnits();
     UnitItf[] getUnits(Rectangle screenRect);
+
+    /**
+     * @param ud
+     * @return Is Loop continue.
+     */
     boolean   unitsDo(UnitDoItf ud);
+
+    /**
+     * @param screenRect area.
+     *
+     * @param ud
+     * @return Is Loop continue.
+     */
     boolean   unitsDo(Rectangle screenRect, UnitDoItf ud);
     AGMessage[] getShowers(Rectangle screenRect);
     UnitItf getUnit(int ugid);

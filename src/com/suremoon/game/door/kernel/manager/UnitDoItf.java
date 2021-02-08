@@ -5,7 +5,7 @@ import com.suremoon.game.door.units_itf.UnitItf;
 public interface UnitDoItf {
     /**
      * @param unit
-     * @return true:break, false: continue.
+     * @return Is Loop continue.
      */
     boolean Do(UnitItf unit);
 }

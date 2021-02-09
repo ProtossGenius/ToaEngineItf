@@ -11,18 +11,15 @@ public class EffectInformation {
     EffectActionItf ea;
     protected AGSAdapter shower;
     protected int width, height;
-    protected double apHurt, adHurt;
     private int intervalTime; // mill-sec
     boolean isLoop;
     private PointF footPos;
-    public EffectInformation(AGSAdapter shower, EffectActionItf ea, int width, int height, int intervalTime, PointF footPos, double adHurt, double apHurt, boolean isLoop) {
+    public EffectInformation(AGSAdapter shower, EffectActionItf ea, int width, int height, int intervalTime, PointF footPos, boolean isLoop) {
         this.shower = shower;
         this.ea = ea;
         this.width = width;
         this.height = height;
         this.intervalTime = intervalTime;
-        this.apHurt = apHurt;
-        this.adHurt = adHurt;
         this.isLoop = isLoop;
         this.footPos = footPos;
     }
@@ -32,11 +29,11 @@ public class EffectInformation {
     }
 
     public double getApHurt() {
-        return apHurt;
+        return 100;
     }
 
     public double getAdHurt() {
-        return adHurt;
+        return 100;
     }
 
     public int getWidth() {

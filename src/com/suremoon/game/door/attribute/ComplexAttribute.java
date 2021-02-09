@@ -5,7 +5,7 @@ package com.suremoon.game.door.attribute;
  *             or your changes will be cover.
  * @Author:  ProtossGenius
  *
- * @Time:    2021-02-09 14:38:04
+ * @Time:    2021-02-09 16:00:58
  */
 public class ComplexAttribute extends AttributeAdapter{
     AttributeAdapter extra;
@@ -34,21 +34,29 @@ public class ComplexAttribute extends AttributeAdapter{
 	public double getHp (){ return super.getHp () + extra.getHp (); }
 	/** 获得 蓝量. */
 	public double getMp (){ return super.getMp () + extra.getMp (); }
-	/** 获得 魔法. */
-	public double getAp (){ return super.getAp () + extra.getAp (); }
-	/** 获得 物理. */
-	public double getAd (){ return super.getAd () + extra.getAd (); }
-	/** 获得 魔抗. */
-	public double getInt (){ return super.getInt () + extra.getInt (); }
-	/** 获得 物抗. */
-	public double getDef (){ return super.getDef () + extra.getDef (); }
-	/** 获得 速度. */
-	public double getSpd (){ return super.getSpd () + extra.getSpd (); }
-	/** 获得 敏捷（命中和闪避）. */
-	public double getAgi (){ return super.getAgi () + extra.getAgi (); }
 	/** 获得 最大血量. */
 	public double getMaxHp (){ return super.getMaxHp () + extra.getMaxHp (); }
 	/** 获得 最大蓝量. */
 	public double getMaxMp (){ return super.getMaxMp () + extra.getMaxMp (); }
+	/** 获得 速度. */
+	public double getSpd (){ return super.getSpd () + extra.getSpd (); }
+	/** 获得 敏捷（命中和闪避）. */
+	public double getAgi (){ return super.getAgi () + extra.getAgi (); }
+	/** 获得 金. */
+	public double getMetal (){ return super.getMetal () + extra.getMetal (); }
+	/** 获得 木. */
+	public double getWood (){ return super.getWood () + extra.getWood (); }
+	/** 获得 水. */
+	public double getWater (){ return super.getWater () + extra.getWater (); }
+	/** 获得 火. */
+	public double getFire (){ return super.getFire () + extra.getFire (); }
+	/** 获得 土. */
+	public double getEarth (){ return super.getEarth () + extra.getEarth (); }
+	/** 获得 雷. */
+	public double getThunder (){ return super.getThunder () + extra.getThunder (); }
+	/** 获得 风. */
+	public double getWind (){ return super.getWind () + extra.getWind (); }
+	/** 获得 冰. */
+	public double getIce (){ return super.getIce () + extra.getIce (); }
 }
 

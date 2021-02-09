@@ -1,6 +1,8 @@
 package com.suremoon.game.door.units_itf;
 
+import com.suremoon.game.door.attribute.ElementPriorities;
 import com.suremoon.game.door.attribute.ComplexAttribute;
+import com.suremoon.game.door.attribute.HurtCalcItf;
 import com.suremoon.game.door.kernel.AGTypeInf;
 import com.suremoon.game.door.kernel.DieDo;
 import com.suremoon.game.door.kernel.GRectItf;
@@ -9,12 +11,17 @@ import com.suremoon.game.door.kernel.enums.LeaveStatus;
 
 public interface UnitItf extends AGTypeInf, GRectItf {
 
-    /**TODO： 将来想要把伤害抽象为一个类
+    void setHurtCalcItf(HurtCalcItf hurtCalc);
+    HurtCalcItf getHurtCalcItf();
+
+    /**
      * @param attacker 攻击者
      * @param ad AD伤害
      * @param ap AP伤害
      */
-    void underAttack(UnitItf attacker, double ad, double ap);
+    default void underAttack(UnitItf attacker, double ad, double ap) {
+        underAttack(attacker, new ElementPriorities(ad, ap));
+    }
 
     /**
      * @return 是否已死亡
@@ -22,8 +29,6 @@ public interface UnitItf extends AGTypeInf, GRectItf {
     boolean isDie();
 
     ComplexAttribute getAttribute();
-
-    void setAttribute(ComplexAttribute attrib);
 
     StateItf getState();
 
@@ -50,6 +55,16 @@ public interface UnitItf extends AGTypeInf, GRectItf {
      * @param hel 治疗
      */
     void BeHeal(double hel);
+    default void underAttack(UnitItf attacker, ElementPriorities elementPriorities) {
+        double hurt = getHurtCalcItf().underAttack(this, elementPriorities);
+        BeHurt(hurt);
+        getUnitRem().underAttack(this, attacker, hurt);
+    }
+    default void BeHurt(double hurt){
+        double hp = this.getAttribute().getHp();
+        hp = hp - hurt > 0 ? hp - hurt : 0;
+        this.getAttribute().setHp(hp);
+    }
 
     void setDieDo(DieDo dieDo);
 

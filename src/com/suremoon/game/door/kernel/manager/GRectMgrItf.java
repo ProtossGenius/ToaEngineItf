@@ -1,5 +1,6 @@
 package com.suremoon.game.door.kernel.manager;
 
+import com.suremoon.game.door.gometry.PointF;
 import com.suremoon.game.door.kernel.GRectDoItf;
 import com.suremoon.game.door.kernel.GRectItf;
 import com.suremoon.game.door.nils.NullGRectMgr;
@@ -13,9 +14,11 @@ public interface GRectMgrItf {
     boolean GRectDo(Rectangle screen, GRectDoItf gRectDo);
     // range all GRect.
     boolean GRectDo(GRectDoItf gRectDo);
-    void update(GRectItf rect, Rectangle oldRect);
+    void update(GRectItf rect, PointF oldPos);
 
-    void update(GRectItf rect, Point oldPos);
+    default void update(GRectItf rect, Point oldPos){
+        update(rect, new PointF(oldPos));
+    }
 
     void delGRect(GRectItf rect);
 

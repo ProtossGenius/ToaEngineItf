@@ -1,5 +1,6 @@
 package com.suremoon.game.door.nils;
 
+import com.suremoon.game.door.gometry.PointF;
 import com.suremoon.game.door.kernel.*;
 import com.suremoon.game.door.kernel.manager.GRectMgrItf;
 
@@ -26,12 +27,7 @@ public class NullGRectMgr implements GRectMgrItf {
     }
 
     @Override
-    public void update(GRectItf rect, Rectangle oldRect) {
-
-    }
-
-    @Override
-    public void update(GRectItf rect, Point oldPos) {
+    public void update(GRectItf rect, PointF oldPos) {
 
     }
 

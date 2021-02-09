@@ -1,18 +1,27 @@
 package com.suremoon.game.door.attribute;
 
 /**
- * Created by Water Moon on 2018/3/9.
+ * @Note:    this file product by tools, you should change nothing in here,
+ *             or your changes will be cover.
+ * @Author:  ProtossGenius
+ *
+ * @Time:    2021-02-09 14:34:02
  */
 public class ComplexAttribute extends AttributeAdapter{
-    AttributeAdapter itself, extra;
+    AttributeAdapter extra;
+
+    public ComplexAttribute(){
+        super();
+        this.extra = new AttributeAdapter();
+    }
 
     public ComplexAttribute(AttributeAdapter itself) {
-        this.itself = itself;
+        super(itself);
         this.extra = new AttributeAdapter();
     }
 
     public ComplexAttribute(AttributeAdapter itself, AttributeAdapter extra) {
-        this.itself = itself;
+        super(itself);
         this.extra = extra;
     }
     
@@ -20,103 +29,26 @@ public class ComplexAttribute extends AttributeAdapter{
         return extra;
     }
 
-    @Override
-    public double getHp() {
-        return itself.getHp() + extra.getHp();
-    }
 
-    @Override
-    public double getMaxHp() {
-        return itself.getMaxHp() + extra.getMaxHp();
-    }
-
-    @Override
-    public double getMp() {
-        return itself.getMp() + extra.getMp();
-    }
-
-    @Override
-    public double getMaxMp() {
-        return itself.getMaxMp() + extra.getMaxMp();
-    }
-
-    @Override
-    public double getAp() {
-        return itself.getAp() + extra.getAp();
-    }
-
-    @Override
-    public double getAd() {
-        return itself.getAd() + extra.getAp();
-    }
-
-    @Override
-    public double getInt() {
-        return itself.getInt() + extra.getInt();
-    }
-
-    @Override
-    public double getDef() {
-        return itself.getDef() + extra.getDef();
-    }
-
-    @Override
-    public double getSpd() {
-        return itself.getSpd() + extra.getSpd();
-    }
-
-    @Override
-    public double getAgi() {
-        return itself.getAgi() + extra.getAgi();
-    }
-
-    @Override
-    public void setHp(double hp) {
-        itself.setHp(hp);
-    }
-
-    @Override
-    public void setMaxHp(double maxHp) {
-        itself.setMaxHp(maxHp);
-    }
-
-    @Override
-    public void setMp(double mp) {
-        itself.setMp(mp);
-    }
-
-    @Override
-    public void setMaxMp(double maxMp) {
-        itself.setMaxMp(maxMp);
-    }
-
-    @Override
-    public void setAp(double ap) {
-        itself.setAp(ap);
-    }
-
-    @Override
-    public void setAd(double ad) {
-        itself.setAd(ad);
-    }
-
-    @Override
-    public void setInt(double value) {
-        itself.setInt(value);
-    }
-
-    @Override
-    public void setDef(double def) {
-        itself.setDef(def);
-    }
-
-    @Override
-    public void setSpd(double spd) {
-        itself.setSpd(spd);
-    }
-
-    @Override
-    public void setAgi(double agi) {
-        itself.setAgi(agi);
-    }
+	/** 获得 血量. */
+	public double getHp (){ return getHp () + extra.getHp (); }
+	/** 获得 蓝量. */
+	public double getMp (){ return getMp () + extra.getMp (); }
+	/** 获得 魔法. */
+	public double getAp (){ return getAp () + extra.getAp (); }
+	/** 获得 物理. */
+	public double getAd (){ return getAd () + extra.getAd (); }
+	/** 获得 魔抗. */
+	public double getInt (){ return getInt () + extra.getInt (); }
+	/** 获得 物抗. */
+	public double getDef (){ return getDef () + extra.getDef (); }
+	/** 获得 速度. */
+	public double getSpd (){ return getSpd () + extra.getSpd (); }
+	/** 获得 敏捷（命中和闪避）. */
+	public double getAgi (){ return getAgi () + extra.getAgi (); }
+	/** 获得 最大血量. */
+	public double getMaxHp (){ return getMaxHp () + extra.getMaxHp (); }
+	/** 获得 最大蓝量. */
+	public double getMaxMp (){ return getMaxMp () + extra.getMaxMp (); }
 }
+

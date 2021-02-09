@@ -189,7 +189,7 @@ func writeToComplex(attribList []*AttribPair) {
 
 	for _, attrib := range attribList {
 		write("\t/** 获得%s. */", attrib.Desc)
-		write("\tpublic double get%s(){ return get%s() + extra.get%s(); }", attrib.Name, attrib.Name, attrib.Name)
+		write("\tpublic double get%s(){ return super.get%s() + extra.get%s(); }", attrib.Name, attrib.Name, attrib.Name)
 	}
 
 	write("}\n")

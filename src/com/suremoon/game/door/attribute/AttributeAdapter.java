@@ -5,7 +5,7 @@ package com.suremoon.game.door.attribute;
  * 	           your another change will be cover.
  * @Author:  ProtossGenius
  *
- * @Time:    2021-02-09 14:34:02
+ * @Time:    2021-02-09 14:38:04
  */
 public class AttributeAdapter extends SMAttribute{ 
 

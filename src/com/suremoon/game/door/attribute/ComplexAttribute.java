@@ -5,7 +5,7 @@ package com.suremoon.game.door.attribute;
  *             or your changes will be cover.
  * @Author:  ProtossGenius
  *
- * @Time:    2021-02-09 14:34:02
+ * @Time:    2021-02-09 14:38:04
  */
 public class ComplexAttribute extends AttributeAdapter{
     AttributeAdapter extra;
@@ -31,24 +31,24 @@ public class ComplexAttribute extends AttributeAdapter{
 
 
 	/** 获得 血量. */
-	public double getHp (){ return getHp () + extra.getHp (); }
+	public double getHp (){ return super.getHp () + extra.getHp (); }
 	/** 获得 蓝量. */
-	public double getMp (){ return getMp () + extra.getMp (); }
+	public double getMp (){ return super.getMp () + extra.getMp (); }
 	/** 获得 魔法. */
-	public double getAp (){ return getAp () + extra.getAp (); }
+	public double getAp (){ return super.getAp () + extra.getAp (); }
 	/** 获得 物理. */
-	public double getAd (){ return getAd () + extra.getAd (); }
+	public double getAd (){ return super.getAd () + extra.getAd (); }
 	/** 获得 魔抗. */
-	public double getInt (){ return getInt () + extra.getInt (); }
+	public double getInt (){ return super.getInt () + extra.getInt (); }
 	/** 获得 物抗. */
-	public double getDef (){ return getDef () + extra.getDef (); }
+	public double getDef (){ return super.getDef () + extra.getDef (); }
 	/** 获得 速度. */
-	public double getSpd (){ return getSpd () + extra.getSpd (); }
+	public double getSpd (){ return super.getSpd () + extra.getSpd (); }
 	/** 获得 敏捷（命中和闪避）. */
-	public double getAgi (){ return getAgi () + extra.getAgi (); }
+	public double getAgi (){ return super.getAgi () + extra.getAgi (); }
 	/** 获得 最大血量. */
-	public double getMaxHp (){ return getMaxHp () + extra.getMaxHp (); }
+	public double getMaxHp (){ return super.getMaxHp () + extra.getMaxHp (); }
 	/** 获得 最大蓝量. */
-	public double getMaxMp (){ return getMaxMp () + extra.getMaxMp (); }
+	public double getMaxMp (){ return super.getMaxMp () + extra.getMaxMp (); }
 }
 

@@ -28,14 +28,6 @@ public class EffectInformation {
         return shower;
     }
 
-    public double getApHurt() {
-        return 100;
-    }
-
-    public double getAdHurt() {
-        return 100;
-    }
-
     public int getWidth() {
         return width;
     }

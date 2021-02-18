@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * to avoid the problem null GRectMgr may caused.
  */
 public class NullGRectMgr implements GRectMgrItf {
+    Rectangle area = new Rectangle();
     @Override
     public ArrayList<GRectItf> getGRects(Rectangle screen) {
         return new ArrayList<>();
@@ -19,16 +20,6 @@ public class NullGRectMgr implements GRectMgrItf {
     @Override
     public boolean GRectDo(Rectangle screen, GRectDoItf gRectDo) {
         return false;
-    }
-
-    @Override
-    public boolean GRectDo(GRectDoItf gRectDo) {
-        return false;
-    }
-
-    @Override
-    public void update(GRectItf rect, PointF oldPos) {
-
     }
 
     @Override
@@ -49,6 +40,11 @@ public class NullGRectMgr implements GRectMgrItf {
     @Override
     public int size() {
         return 0;
+    }
+
+    @Override
+    public Rectangle Area() {
+        return area;
     }
 
 }

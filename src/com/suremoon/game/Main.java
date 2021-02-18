@@ -1,5 +1,6 @@
 package com.suremoon.game;
 
+import java.awt.*;
 import java.util.LinkedList;
 
 /**
@@ -19,5 +20,11 @@ public class Main {
         }
 
         System.out.println(list.size());
+
+        Rectangle rect = new Rectangle(0, 0, 100, 100);
+        System.out.println(rect.contains(1, 1));
+        System.out.println(rect.contains(0, 0));
+        System.out.println(rect.contains(0, 100));
+        System.out.println(rect.contains(100, 100));
     }
 }

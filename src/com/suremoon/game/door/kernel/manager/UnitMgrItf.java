@@ -15,12 +15,6 @@ public interface UnitMgrItf {
     UnitItf[] getUnits(Rectangle screenRect);
 
     /**
-     * @param ud
-     * @return Is Loop continue.
-     */
-    boolean   unitsDo(UnitDoItf ud);
-
-    /**
      * @param screenRect area.
      *
      * @param ud

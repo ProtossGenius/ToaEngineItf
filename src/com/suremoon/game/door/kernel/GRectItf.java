@@ -54,7 +54,7 @@ public interface GRectItf extends CalcAble {
         setPutPos(pos.X, pos.Y);
     }
 
-    /** 设置左上角位置
+    /** 设置左上角位置，且更新其在manager中的位置
      * @param x 横坐标
      * @param y 纵坐标
      */
@@ -64,11 +64,18 @@ public interface GRectItf extends CalcAble {
         setPos(pos.x, pos.y);
     }
 
-    /**
-     * @param pos 设置位置
-     */
     default void setPos(PointF pos) {
         setPos(pos.X, pos.Y);
+    }
+
+    /**
+     * 仅设置位置
+     */
+    void setPosWithoutUpdateManager(double x, double y);
+    default void setPosWithoutUpdateManager(Point pos){
+        setPosWithoutUpdateManager(pos.x, pos.y);}
+    default void setPosWithoutUpdateManager(PointF pos) {
+        setPosWithoutUpdateManager(pos.X, pos.Y);
     }
 
     /**

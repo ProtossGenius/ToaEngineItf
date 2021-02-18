@@ -94,9 +94,8 @@ public class GRect implements GRectItf {
         if(cg.notLegitimacy()){
             return;
         }
-        Point oldPos = pos.toPoint();
-        this.pos.AddAs(cg);
-        manager.update(this, oldPos);
+        var newPos = this.pos.Add(cg);
+        setPos(newPos);
     }
 
     @Override
@@ -114,9 +113,13 @@ public class GRect implements GRectItf {
         if(Double.isNaN(x + y)){
             return;
         }
-        Point oldPos = this.getPos().toPoint();
-        pos.setPoint(x, y);
-        manager.update(this, oldPos);
+        // update to manager. TODO: if in same block can update directly.
+        manager.update(this, (int)x, (int)y);
+    }
+
+    @Override
+    public void setPosWithoutUpdateManager(double x, double y) {
+        this.pos.setPoint(x, y);
     }
 
     @Override

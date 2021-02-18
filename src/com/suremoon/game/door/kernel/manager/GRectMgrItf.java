@@ -12,19 +12,31 @@ public interface GRectMgrItf {
     GRectMgrItf Null = new NullGRectMgr();
     List<GRectItf> getGRects(Rectangle screen);
     boolean GRectDo(Rectangle screen, GRectDoItf gRectDo);
-    // range all GRect.
-    boolean GRectDo(GRectDoItf gRectDo);
-    void update(GRectItf rect, PointF oldPos);
-
-    default void update(GRectItf rect, Point oldPos){
-        update(rect, new PointF(oldPos));
-    }
 
     void delGRect(GRectItf rect);
 
     void addGRect(GRectItf rect);
 
+    default void update(GRectItf rect, double newPosX, double newPosY){
+        delGRect(rect);
+        rect.setPosWithoutUpdateManager(newPosX, newPosY);
+        addGRect(rect);
+    }
+
+    default void update(GRectItf rect, PointF newPos){
+        update(rect, newPos.X, newPos.Y);
+    }
+
+    default void update(GRectItf rect, Point newPos){
+        update(rect, newPos.x, newPos.y);
+    }
+
     List<GRectItf> getAllGRects();
 
     int size();
+    Rectangle Area();
+
+    static boolean inArea(Rectangle area, Point p){
+        return p.x >= area.x && p.x <= area.x + area.width && p.y >= area.y && p.y <= area.y + area.height;
+    }
 }

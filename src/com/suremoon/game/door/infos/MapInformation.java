@@ -4,18 +4,19 @@ import com.suremoon.game.door.code_tools.Pair;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Water Moon on 2018/5/24.
  */
 public class MapInformation {
     String version;
-    int cols, rows, twidth, theight, adapterNums;
-    ArrayList<Pair<Integer, String>> tConfs = new ArrayList<>();
-    ArrayList<Pair<Integer, Integer>> adapters = new ArrayList<>();
+    int cols, rows, twidth, theight;
+    Map<Integer, String> tConfs = new HashMap<>();
     Pair<Integer, Integer> tmap[][];
 
-    long terrainStart, tadapterStart;
+    long terrainStart;
 
     public MapInformation() {
     }
@@ -44,11 +45,11 @@ public class MapInformation {
         this.rows = rows;
     }
 
-    public ArrayList<Pair<Integer, String>> gettConfs() {
+    public Map<Integer, String> gettConfs() {
         return tConfs;
     }
 
-    public void settConfs(ArrayList<Pair<Integer, String>> tConfs) {
+    public void settConfs(Map<Integer, String> tConfs) {
         this.tConfs = tConfs;
     }
 
@@ -58,22 +59,6 @@ public class MapInformation {
 
     public void setTerrainStart(long terrainStart) {
         this.terrainStart = terrainStart;
-    }
-
-    public long getTadapterStart() {
-        return tadapterStart;
-    }
-
-    public void setTadapterStart(long tadapterStart) {
-        this.tadapterStart = tadapterStart;
-    }
-
-    public ArrayList<Pair<Integer, Integer>> getAdapters() {
-        return adapters;
-    }
-
-    public void setAdapters(ArrayList<Pair<Integer, Integer>> adapters) {
-        this.adapters = adapters;
     }
 
     public Pair<Integer, Integer>[][] getTmap() {
@@ -89,14 +74,6 @@ public class MapInformation {
             return;
         }
         tmap[x][y] = terrain;
-    }
-
-    public int getAdapterNums() {
-        return adapterNums;
-    }
-
-    public void setAdapterNums(int adapterNums) {
-        this.adapterNums = adapterNums;
     }
 
     public int getTwidth() {

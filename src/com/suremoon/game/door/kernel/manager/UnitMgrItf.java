@@ -29,8 +29,8 @@ public interface UnitMgrItf {
      * remove all units in UnitMgrItf.
      */
     default void clear(){
-        var units = getUnits();
-        for(var unit : units){
+        UnitItf[] units = getUnits();
+        for(UnitItf unit : units){
             removeUnit(unit);
         }
     }

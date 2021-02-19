@@ -8,20 +8,12 @@ import com.suremoon.game.door.kernel.DieDo;
 import com.suremoon.game.door.kernel.GRectItf;
 import com.suremoon.game.door.kernel.UnitRemItf;
 import com.suremoon.game.door.kernel.enums.LeaveStatus;
+import com.suremoon.game.door.units_itf.skill_about.SkillManager;
 
 public interface UnitItf extends AGTypeInf, GRectItf {
 
     void setHurtCalcItf(HurtCalcItf hurtCalc);
     HurtCalcItf getHurtCalcItf();
-
-    /**
-     * @param attacker 攻击者
-     * @param ad AD伤害
-     * @param ap AP伤害
-     */
-    default void underAttack(UnitItf attacker, double ad, double ap) {
-        underAttack(attacker, new ElementPriorities(ad, ap));
-    }
 
     /**
      * @return 是否已死亡
@@ -55,16 +47,6 @@ public interface UnitItf extends AGTypeInf, GRectItf {
      * @param hel 治疗
      */
     void BeHeal(double hel);
-    default void underAttack(UnitItf attacker, ElementPriorities elementPriorities) {
-        double hurt = getHurtCalcItf().underAttack(this, elementPriorities);
-        BeHurt(hurt);
-        getUnitRem().underAttack(this, attacker, hurt);
-    }
-    default void BeHurt(double hurt){
-        double hp = this.getAttribute().getHp();
-        hp = hp - hurt > 0 ? hp - hurt : 0;
-        this.getAttribute().setHp(hp);
-    }
 
     void setDieDo(DieDo dieDo);
 
@@ -95,4 +77,37 @@ public interface UnitItf extends AGTypeInf, GRectItf {
      * @param camp 玩家所属的阵营
      */
     void setCamp(int camp);
+
+    SkillManager getSkillManager();
+
+// ------------- 以下是default实现 ------------
+    default void BeHurt(double hurt){
+        double hp = this.getAttribute().getHp();
+        hp = hp - hurt > 0 ? hp - hurt : 0;
+        this.getAttribute().setHp(hp);
+    }
+
+    default void underAttack(UnitItf attacker, ElementPriorities elementPriorities) {
+        double hurt = getHurtCalcItf().underAttack(this, elementPriorities);
+        BeHurt(hurt);
+        getUnitRem().underAttack(this, attacker, hurt);
+    }
+
+    /**
+     * @param attacker 攻击者
+     * @param ad AD伤害
+     * @param ap AP伤害
+     */
+    default void underAttack(UnitItf attacker, double ad, double ap) {
+        underAttack(attacker, new ElementPriorities(ad, ap));
+    }
+
+    /**
+     *
+     * @param skillName 技能名
+     * @return 是否成功施放技能
+     */
+    default boolean useSkill(String skillName){
+        return getSkillManager().useSkill(skillName, this);
+    }
 }

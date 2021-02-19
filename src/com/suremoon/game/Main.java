@@ -1,6 +1,7 @@
 package com.suremoon.game;
 
 import java.awt.*;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -14,7 +15,7 @@ public class Main {
             list.add(i);
         }
 
-        for(var it = list.iterator(); it.hasNext(); ){
+        for(Iterator<Integer> it = list.iterator(); it.hasNext(); ){
             System.out.println(it.next());
             it.remove();
         }

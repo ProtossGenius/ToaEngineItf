@@ -20,7 +20,7 @@ public class MsgString implements AGMessage {
 
     @Override
     public byte[] toBytes() {
-        var bts = str.getBytes();
+        byte[] bts = str.getBytes();
         return CJDeal.ByteArrayConnect(CJDeal.int2byte(bts.length), bts);
     }
 }

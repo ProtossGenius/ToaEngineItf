@@ -94,7 +94,7 @@ public class GRect implements GRectItf {
         if(cg.notLegitimacy()){
             return;
         }
-        var newPos = this.pos.Add(cg);
+        PointF newPos = this.pos.Add(cg);
         setPos(newPos);
     }
 

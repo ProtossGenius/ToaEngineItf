@@ -9,7 +9,7 @@ public interface HurtCalcItf {
      */
     double underAttack(UnitItf unit, ElementPriorities sHurt);
     HurtCalcItf Null = (unit, sHurt) -> {
-        var attr = unit.getAttribute();
+        AttributeAdapter attr = unit.getAttribute();
         return oneProperty(sHurt.metal, attr.getFire()) +
                 oneProperty(sHurt.wood, attr.getMetal()) +
                 oneProperty(sHurt.water, attr.getEarth()) +

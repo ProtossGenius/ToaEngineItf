@@ -5,12 +5,14 @@ import com.suremoon.game.door.netabout.AGMessage;
 import com.suremoon.game.door.tools.ByteStream;
 import com.suremoon.game.door.tools.CJDeal;
 
+import java.awt.*;
+
 public class MsgScreenAsk implements AGMessage {
     public int posX;
     public int posY;
     public MsgScreenAsk(){}
     public MsgScreenAsk(GameScreenItf screen){
-        var rect = screen.getScreenRect();
+        Rectangle rect = screen.getScreenRect();
         posX = rect.x;
         posY = rect.y;
     }

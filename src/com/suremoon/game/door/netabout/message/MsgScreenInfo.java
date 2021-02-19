@@ -27,7 +27,7 @@ public class MsgScreenInfo implements AGMessage {
 
         WorldIndex = bs.getInteger();
         info[0] = new AGMessage[]{new MsgUnit(bs)};
-        var length = bs.getInteger();
+        int length = bs.getInteger();
         info[1] =new AGMessage[length];
         for (int i = 0; i < length; ++i){
             info[1][i] = new MsgUnit(bs);
@@ -47,7 +47,7 @@ public class MsgScreenInfo implements AGMessage {
 
     @Override
     public byte[] toBytes() {
-        var bytes = new byte[5 + info[1].length + info[2].length + info[3].length][];
+        byte[][] bytes = new byte[5 + info[1].length + info[2].length + info[3].length][];
         int index = 0;
         bytes[index++] = CJDeal.int2byte(WorldIndex);
         bytes[index++] = info[0][0].toBytes();

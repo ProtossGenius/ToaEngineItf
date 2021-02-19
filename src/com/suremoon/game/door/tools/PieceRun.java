@@ -22,7 +22,7 @@ public class PieceRun {
      * true: run-finish in PIECE_TIME ,false not
      */
     public static boolean DoPeaceRun(int PIECE_TIME, Run run) {
-        var start = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
         run.run();
         long piece = PIECE_TIME + start - System.currentTimeMillis();
         if(piece < 0){

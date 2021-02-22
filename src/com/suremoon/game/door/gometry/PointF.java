@@ -1,11 +1,16 @@
 package com.suremoon.game.door.gometry;
 
+import com.suremoon.game.door.save_about.SerializeAble;
+import com.suremoon.game.door.tools.ByteStream;
+import com.suremoon.game.door.tools.CJDeal;
+
 import java.awt.*;
 
 /**
  * Created by Water Moon on 2017/9/6.
  */
-public class PointF {
+public class PointF implements SerializeAble {
+    public double X, Y;
     public double getX() {
         return X;
     }
@@ -21,7 +26,6 @@ public class PointF {
     public void setY(double y) {
         Y = y;
     }
-    public double X, Y;
     public PointF(int x, int y){
         this.X = x;
         this.Y = y;
@@ -131,4 +135,15 @@ public class PointF {
         return "PointF(" + getX() + ", " + getY() + ")";
     }
     public final static PointF DIRECTION_ZERO = new PointF(0, 0);
+
+    @Override
+    public void parseFromBytes(ByteStream byteStream) {
+        this.X = byteStream.getDouble();
+        this.Y = byteStream.getDouble();
+    }
+
+    @Override
+    public byte[] encodeToBytes() {
+        return CJDeal.ByteArrayConnect(CJDeal.double2bytes(this.X), CJDeal.double2bytes(this.Y));
+    }
 }

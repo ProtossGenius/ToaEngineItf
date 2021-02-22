@@ -2,10 +2,11 @@ package com.suremoon.game.door.kernel;
 
 import com.suremoon.game.door.gometry.PointF;
 import com.suremoon.game.door.kernel.manager.GRectMgrItf;
+import com.suremoon.game.door.save_about.SerializeAble;
 
 import java.awt.*;
 
-public interface GRectItf extends CalcAble {
+public interface GRectItf extends CalcAble, SerializeAble {
     /**
      * @return 转换成awt的Rect
      */
@@ -103,6 +104,11 @@ public interface GRectItf extends CalcAble {
     void setFootPosPro(PointF footPos);
 
     /**
+     * @return 脚在矩形中的相对位置
+     */
+    PointF getFootPosPro();
+
+    /**
      * @param grm 设置所在的管理器
      */
     void setGRectMgr(GRectMgrItf grm);
@@ -120,4 +126,5 @@ public interface GRectItf extends CalcAble {
      * @return 是否要丢弃该单位
      */
     boolean isDrop();
+
 }

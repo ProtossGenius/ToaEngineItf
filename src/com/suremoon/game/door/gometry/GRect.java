@@ -4,6 +4,8 @@ import com.suremoon.game.door.kernel.GRectItf;
 import com.suremoon.game.door.kernel.manager.GRectMgrItf;
 import com.suremoon.game.door.kernel.WorldItf;
 import com.suremoon.game.door.kernel.WorldMgrItf;
+import com.suremoon.game.door.tools.ByteStream;
+import com.suremoon.game.door.tools.CJDeal;
 
 import java.awt.*;
 
@@ -156,6 +158,11 @@ public class GRect implements GRectItf {
         this.footPos = footPos;
     }
 
+    @Override
+    public PointF getFootPosPro() {
+        return this.footPos;
+    }
+
     public GRectMgrItf getGRectMgr() {
         return manager;
     }
@@ -203,4 +210,25 @@ public class GRect implements GRectItf {
         isDrop = drop;
     }
 
+    @Override
+    public void parseFromBytes(ByteStream byteStream) {
+        this.size.width = byteStream.getInteger();
+        this.size.height = byteStream.getInteger();
+        this.pos.parseFromBytes(byteStream);
+        this.isDrop = byteStream.getBytes(1)[0] == 1;
+        this.direct.parseFromBytes(byteStream);
+        this.footPos.parseFromBytes(byteStream);
+    }
+
+    @Override
+    public byte[] encodeToBytes() {
+        return CJDeal.ByteArrayConnect(
+                CJDeal.int2byte(this.size.width),
+                CJDeal.int2byte(this.size.height),
+                this.pos.encodeToBytes(),
+                this.isDrop ? new byte[]{1} : new byte[]{0},
+                this.direct.encodeToBytes(),
+                this.footPos.encodeToBytes()
+        );
+    }
 }

@@ -1,5 +1,8 @@
 package com.suremoon.game.door.attribute;
 
+import com.suremoon.game.door.tools.ByteStream;
+import com.suremoon.game.door.tools.CJDeal;
+
 /**
  * @Note:    this file product by tools, you should change nothing in here,
  *             or your changes will be cover.
@@ -58,5 +61,16 @@ public class ComplexAttribute extends AttributeAdapter{
 	public double getWind (){ return super.getWind () + extra.getWind (); }
 	/** 获得 冰. */
 	public double getIce (){ return super.getIce () + extra.getIce (); }
+
+	@Override
+	public void parseFromBytes(ByteStream byteStream) {
+		super.parseFromBytes(byteStream);
+		this.extra.parseFromBytes(byteStream);
+	}
+
+	@Override
+	public byte[] encodeToBytes() {
+		return CJDeal.ByteArrayConnect(super.encodeToBytes(), this.extra.encodeToBytes());
+	}
 }
 

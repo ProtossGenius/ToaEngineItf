@@ -10,7 +10,7 @@ import com.suremoon.game.door.units_itf.UnitItf;
  * Created by Water Moon on 2017/12/28.
  */
 public class MsgUnit implements AGMessage {
-    public MsgUnit(){setShowName("Null");}
+    public MsgUnit(){}
     public MsgUnit(UnitItf unit){
         gid = unit.getGid();
         UnitType = unit.getAGType();
@@ -28,7 +28,7 @@ public class MsgUnit implements AGMessage {
         this.hp = (int)attrib.getHp();
         this.max_mp = (int) attrib.getMaxMp();
         this.mp = (int) attrib.getMp();
-        setShowName(unit.getShowName());
+        this.showName = unit.getShowName();
     }
     public MsgUnit(ByteStream bs){
         gid = bs.getInteger();
@@ -46,27 +46,17 @@ public class MsgUnit implements AGMessage {
         this.hp = bs.getInteger();
         this.max_mp = bs.getInteger();
         this.mp = bs.getInteger();
-        setShowName(bs.getString());
+        this.showName = bs.getString();
     }
     public int UnitType, gid, StateType, pos_x, pos_y, width, height, max_hp, hp, max_mp, mp, intervalTime;
     public long StatePTime;
     public double direct_x, direct_y;
-    private String showName;
-    private byte[] bytesShowName;
-
-    public String getShowName(){
-        return showName;
-    }
-
-    public void setShowName(String showName){
-        this.showName = showName;
-        this.bytesShowName =showName.getBytes();
-    }
+    public String showName = "";
 
     @Override
     public byte[] toBytes() {
         return CJDeal.ByteArrayConnect(CJDeal.int2byte(gid), CJDeal.int2byte(UnitType), CJDeal.int2byte(StateType), CJDeal.long2bytes(StatePTime), CJDeal.int2byte(intervalTime), CJDeal.double2bytes(direct_x), CJDeal.double2bytes(direct_y), CJDeal.int2byte(pos_x), CJDeal.int2byte(pos_y),
-                CJDeal.int2byte(width), CJDeal.int2byte(height), CJDeal.int2byte(max_hp), CJDeal.int2byte(hp), CJDeal.int2byte(max_mp), CJDeal.int2byte(mp), CJDeal.int2byte(bytesShowName.length), bytesShowName);
+                CJDeal.int2byte(width), CJDeal.int2byte(height), CJDeal.int2byte(max_hp), CJDeal.int2byte(hp), CJDeal.int2byte(max_mp), CJDeal.int2byte(mp), CJDeal.string2bytes(showName));
     }
 
     public static MsgUnit Null = new MsgUnit();

@@ -1,5 +1,7 @@
 package com.suremoon.game.door.tools;
 
+import java.io.UnsupportedEncodingException;
+
 /**
  * Created by Water Moon on 2017/12/28.
  */
@@ -45,7 +47,7 @@ public class ByteStream {
     public String getString(){
         int strLen = getInteger();
         byte[] res= getBytes(strLen);
-        return new String(res);
+        return CJDeal.byte2string(res);
     }
 
     public int size() {

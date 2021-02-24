@@ -9,7 +9,7 @@ import com.suremoon.game.door.units_itf.EffectItf;
  * Created by Water Moon on 2017/12/28.
  */
 public class MsgEffect implements AGMessage {//4+4+4+4+4+8+8+8=44
-    protected int EffectType, pos_x, pos_y, width, height;
+    protected int EffectType, pos_x, pos_y, width, height, gid;
     protected int PTime;
     protected double direct_x, direct_y;
     public MsgEffect(){}
@@ -22,6 +22,7 @@ public class MsgEffect implements AGMessage {//4+4+4+4+4+8+8+8=44
         pos_y = bs.getInteger();
         this.width = bs.getInteger();
         this.height = bs.getInteger();
+        this.gid = bs.getInteger();
     }
 
     public MsgEffect(EffectItf effect) {
@@ -34,12 +35,13 @@ public class MsgEffect implements AGMessage {//4+4+4+4+4+8+8+8=44
         pos_y = effect.getY();
         width = effect.getWidth();
         height = effect.getHeight();
+        gid  = effect.getGid();
     }
 
     @Override
     public byte[] toBytes() {
         return CJDeal.ByteArrayConnect(CJDeal.int2byte(EffectType), CJDeal.int2byte(PTime), CJDeal.double2bytes(direct_x), CJDeal.double2bytes(direct_y),
-                CJDeal.int2byte(pos_x), CJDeal.int2byte(pos_y), CJDeal.int2byte(width), CJDeal.int2byte(height));
+                CJDeal.int2byte(pos_x), CJDeal.int2byte(pos_y), CJDeal.int2byte(width), CJDeal.int2byte(height), CJDeal.int2byte(gid));
     }
 
     public int getEffectType() {
@@ -72,5 +74,9 @@ public class MsgEffect implements AGMessage {//4+4+4+4+4+8+8+8=44
 
     public double getDirect_y() {
         return direct_y;
+    }
+
+    public int getGid() {
+        return gid;
     }
 }

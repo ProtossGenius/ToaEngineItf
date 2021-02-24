@@ -6,9 +6,6 @@ public class CJDeal {
     public CJDeal() {
     }
 
-    public static String toCString(String str) {
-        return str + "\u0000";
-    }
 
     public static String getJString(byte[] inp) throws UnsupportedEncodingException {
         int length = CStringLen(inp);
@@ -28,8 +25,26 @@ public class CJDeal {
         return res;
     }
 
-    public static byte[] String2CBytes(String str) throws UnsupportedEncodingException {
-        return toCString(str).getBytes("GB2312");
+    public static byte[] string2bytes(String str) {
+        byte[] bytes;
+        try {
+            bytes = str.getBytes("GB2312");
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();;
+            bytes = str.getBytes();
+        }
+
+        return CJDeal.ByteArrayConnect(int2byte(bytes.length), bytes);
+    }
+
+    public static String byte2string(byte[] bytes) {
+        try {
+            return new String(bytes, "GB2312");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        return  new String(bytes);
     }
 
     public static byte[] int2byte(int res) {

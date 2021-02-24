@@ -8,9 +8,10 @@ import com.suremoon.game.door.kernel.DieDo;
 import com.suremoon.game.door.kernel.GRectItf;
 import com.suremoon.game.door.kernel.UnitRemItf;
 import com.suremoon.game.door.kernel.enums.LeaveStatus;
+import com.suremoon.game.door.save_about.SerializeAble;
 import com.suremoon.game.door.units_itf.skill_about.SkillManager;
 
-public interface UnitItf extends AGTypeInf, GRectItf {
+public interface UnitItf extends AGTypeInf, GRectItf, SerializeAble {
 
     void setHurtCalcItf(HurtCalcItf hurtCalc);
     HurtCalcItf getHurtCalcItf();

@@ -6,9 +6,15 @@ import com.suremoon.game.door.kernel.CalcAble;
 import com.suremoon.game.door.kernel.EffectActionItf;
 import com.suremoon.game.door.kernel.GRectItf;
 import com.suremoon.game.door.netabout.AGMessageable;
+import com.suremoon.game.door.save_about.SerializeAble;
+import com.suremoon.game.door.tools.ByteStream;
 
-public interface EffectItf extends GRectItf, AGTypeInf, AGMessageable, CalcAble {
+public interface EffectItf extends GRectItf, AGTypeInf, AGMessageable, CalcAble, SerializeAble {
     UnitItf getEffectPutter();
+    /**
+     * @return global id.
+     */
+    int getGid();
     void setEffectPutter(UnitItf effectPutter);
     void setEffectType(int effectType);
     int getPassedTime();

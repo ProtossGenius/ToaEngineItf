@@ -4,14 +4,15 @@ import com.suremoon.game.door.netabout.AGMessage;
 import com.suremoon.game.door.tools.ByteStream;
 import com.suremoon.game.door.tools.CJDeal;
 
+import java.io.UnsupportedEncodingException;
+
 public class MsgString implements AGMessage {
     String str;
     public MsgString(String str){
         this.str = str;
     }
     public MsgString(ByteStream bs){
-        byte[] bts = bs.getBytes(bs.getInteger());
-        str = new String(bts) ;
+        str = bs.getString();
     }
 
     public String getStr(){
@@ -20,7 +21,6 @@ public class MsgString implements AGMessage {
 
     @Override
     public byte[] toBytes() {
-        byte[] bts = str.getBytes();
-        return CJDeal.ByteArrayConnect(CJDeal.int2byte(bts.length), bts);
+        return CJDeal.string2bytes(str);
     }
 }

@@ -5,14 +5,17 @@ import com.suremoon.game.door.units_itf.UnitItf;
 // DieDo when unit die, what should do.
 public interface DieDo {
     void Do(UnitItf it, WorldItf world, WorldMgrItf worldMgr);
-    DieDoNothing DoNothing = new DieDoNothing();
+    DieDo Default = new DieClearAfter30s();
+
 }
 
-// Donothing
-class DieDoNothing implements DieDo{
-    public DieDoNothing(){}
-    @Override
-    public void Do(UnitItf it, WorldItf world, WorldMgrItf wm) {
+class DieClearAfter30s implements DieDo{
 
+    @Override
+    public void Do(UnitItf it, WorldItf world, WorldMgrItf worldMgr) {
+        if (it.isDie() && it.getState().getPassedTime() >= 3000L) {
+          it.setDrop(true);
+          world.getGameMap().getUnitMgr().removeUnit(it);
+        }
     }
 }

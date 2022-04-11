@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="ToaEngineItf:jar">
+    <output-path>$PROJECT_DIR$/../ToyEngine/LIBS</output-path>
+    <root id="archive" name="ToaEngineItf.jar">
+      <element id="module-output" name="ToaEngineItf" />
+    </root>
+  </artifact>
+</component>
